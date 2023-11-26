@@ -1,0 +1,13 @@
+//esc押すまで実行
+act_id=GETID(GET_ACTIVE_WIN)
+CTRLWIN(act_id, ACTIVATE)
+
+NAME="アプリ名"
+
+WHILE TRUE
+FUKIDASI(NAME+"：ESCを押すまで実行中 他画面でのESC注意",10,0,0,15)
+IFB GETKEYSTATE(VK_ESC)
+BREAK
+ENDIF
+
+WEND

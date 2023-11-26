@@ -1,0 +1,3 @@
+IE = CREATEOLEOBJ("InternetExplorer.Application")
+IE.visible = True
+IE.navigate("http://get.adobe.com/jp/flashplayer/about/")

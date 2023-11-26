@@ -1,0 +1,14 @@
+//マウス座標取得
+WHILE TRUE
+FUKIDASI("左クリック待ち *他画面でのクリック注意",10,0,0,10)
+IFB GETKEYSTATE(VK_LBUTTON)
+x = G_MOUSE_X // マウスカーソルのX座標
+y = G_MOUSE_Y // マウスカーソルのY座標
+BREAK
+ENDIF
+WEND
+
+//
+
+//右クリック
+BTN(RIGHT,CLICK,x,y,300)

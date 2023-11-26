@@ -1,0 +1,36 @@
+If GETKEYSTATE(TGL_IME) Then KBD(VK_KANJI,CLICK,50)
+
+// メッセージ表示位置
+//PUBLIC msgx, msgy
+//msgx = MONITOR(0, MON_WIDTH) / 2 // メインモニタの真ん中
+//msgy = MONITOR(0, MON_HEIGHT) / 2
+
+//WHILE TRUE
+// FUKIDASI("GIMP：ESCを押すまで実行中 他画面でのESC注意",10,0,0,15)
+// IFB GETKEYSTATE(VK_ESC)
+// BREAK
+// ENDIF
+//WEND
+
+//無限
+While True
+//ひたすら置換
+KBD(VK_CTRL,DOWN,40)
+KBD(VK_H,CLICK,16)
+KBD(VK_CTRL,UP,40)
+KBD(VK_ALT,DOWN,40)
+KBD(VK_A,DOWN,40)
+KBD(VK_ALT,UP,40)
+KBD(VK_A,UP,31)
+//待ち時間
+SLEEP(1)
+KBD(VK_ESC,CLICK,40)
+KBD(VK_ESC,CLICK,40)
+//次のシート
+KBD(VK_CTRL,DOWN,40)
+KBD(VK_NEXT,CLICK,40)
+KBD(VK_CTRL,UP,40)
+//待ち時間
+SLEEP(1)
+//無限
+Wend

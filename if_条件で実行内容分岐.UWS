@@ -1,0 +1,67 @@
+//実行と保存をキャンセル
+//
+//\\\\\\\\\\\\\\\\\\\\
+INPUT_CASE=INPUT("実行内容を入力<#CR>1.走行時間、<#CR>2.遅延時間、<#CR>3.走行遅延_出発到着、<#CR>4.走行遅延_出発、<#CR>5.走行遅延_到着、<#CR>6.離陸待ち遅延、<#CR>7.全て<#CR>*例:1")
+//\\\\\\\\\\\\\\\\\\\\
+
+//*******************
+act_id=GETID(GET_ACTIVE_WIN)
+INPUT="_"+INPUT("ケース名を入力_例:1")
+SLEEP(1)
+CTRLWIN(act_id,ACTIVATE)
+//CAST
+KBD(VK_RSHIFT,DOWN,40)
+KBD(VK_TAB,CLICK,40)
+KBD(VK_RSHIFT,UP,40)
+//*******************
+
+//\\\\\\\\\\\\\\\\\\\\
+//キャンセル
+IFB INPUT="_"
+EXIT
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+
+//ログアナライザー
+LA_id=GETID("CAST Log Analyser","TDialogMultiFrames")
+//アクティブコマンド
+//CTRLWIN(LA_id,ACTIVATE)
+
+//1走行*****************************************
+If GETKEYSTATE(TGL_IME) Then KBD(VK_KANJI,CLICK,50)
+//\\\\\\\\\\\\\\\\\\\\
+IFB INPUT_CASE=1 or INPUT_CASE=7 THEN
+PRINT "1.走行時間"
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+//2PB*****************************************
+//\\\\\\\\\\\\\\\\\\\\
+IFB INPUT_CASE=2 or INPUT_CASE=7 THEN
+PRINT "2.PB遅延時間"
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+//3走行*****************************************
+//\\\\\\\\\\\\\\\\\\\\
+IFB INPUT_CASE=3 or INPUT_CASE=7 THEN
+PRINT "3.走行遅延_出発到着"
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+//4走行出発*****************************************
+//\\\\\\\\\\\\\\\\\\\\
+IFB INPUT_CASE=4 or INPUT_CASE=7 THEN
+PRINT "4.走行遅延_出発"
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+//5走行到着*****************************************
+//\\\\\\\\\\\\\\\\\\\\
+IFB INPUT_CASE=5 or INPUT_CASE=7 THEN
+PRINT "5.走行遅延_到着"
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+//6離陸待ち*****************************************
+//\\\\\\\\\\\\\\\\\\\\
+IFB INPUT_CASE=6 or INPUT_CASE=7 THEN
+PRINT "6.離陸待ち遅延"
+ENDIF
+//\\\\\\\\\\\\\\\\\\\\
+MSGBOX("すべて完了しました")

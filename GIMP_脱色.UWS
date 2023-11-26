@@ -1,0 +1,101 @@
+//GIMPで画像編集
+//編集したい画像を開いて実行する
+//
+//ACW(GETID("[T2ASC_スポット番号] (インポートされた画像)-1.0 (RGBカラー, 1枚のレイヤー) 2350x1709 ? GIMP","gdkWindowToplevel"),0,0,2576,1400,0)
+KBD(VK_ALT,DOWN,40)
+KBD(VK_C,DOWN,40)
+KBD(VK_ALT,UP,40)
+KBD(VK_C,UP,31)
+//待ち
+sleep(0.1)
+KBD(VK_D,CLICK,40)
+//ACW(GETID("脱色","gdkWindowToplevel"),238,256,430,254,0)
+//待ち
+sleep(0.1)
+//*******************
+WHILE TRUE
+//PRINT "dassyoku_id"
+dassyoku_id=GETID(GET_ACTIVE_WIN)
+//PRINT STATUS(dassyoku_id,ST_BUSY)
+//PRINT STATUS(dassyoku_id,ST_TITLE)
+//PRINT STATUS(dassyoku_id,ST_CLASS)
+IFB STATUS(dassyoku_id,ST_TITLE)="脱色"
+SLEEP(0.1)
+BREAK
+ENDIF
+WEND
+//*******************
+
+SLEEP(0.1)
+KBD(VK_RETURN,CLICK,40)
+//待ち
+sleep(0.1)
+//ACW(GETID("*[T2ASC_スポット番号] (インポートされた画像)-1.0 (RGBカラー, 1枚のレイヤー) 2350x1709 ? GIMP","gdkWindowToplevel"),0,0,2576,1400,0)
+KBD(VK_CTRL,DOWN,40)
+KBD(VK_SHIFT,DOWN,40)
+KBD(VK_E,CLICK,40)
+KBD(VK_SHIFT,UP,40)
+KBD(VK_CTRL,UP,15)
+//待ち
+sleep(0.1)
+//ACW(GETID("画像をエクスポート","gdkWindowToplevel"),1192,587,906,764,0)
+
+//*******************
+WHILE TRUE
+//PRINT "export_id"
+export_id=GETID(GET_ACTIVE_WIN)
+//PRINT STATUS(export_id,ST_BUSY)
+//PRINT STATUS(export_id,ST_TITLE)
+//PRINT STATUS(export_id,ST_CLASS)
+IFB STATUS(export_id,ST_TITLE)="画像をエクスポート"
+SLEEP(0.1)
+BREAK
+ENDIF
+WEND
+//*******************
+
+KBD(VK_RIGHT,CLICK,40)
+
+//*******************************************
+SLEEP(0.1)
+name_id=GETID(GET_ACTIVE_WIN)
+//PRINT STATUS(name_id,ST_TITLE)
+PASS="_脱色"
+SENDSTR(name_id, PASS,0)
+SLEEP(0.1)
+//*******************************************
+If GETKEYSTATE(TGL_IME) Then KBD(VK_KANJI,CLICK,50)
+KBD(VK_RSHIFT,DOWN,40)
+KBD(VK_OEM_102,DOWN,40)
+KBD(VK_RSHIFT,UP,40)
+KBD(VK_OEM_102,UP,40)
+KBD(VK_KANJI,CLICK,50)
+KBD(VK_D,CLICK,40)
+KBD(VK_A,CLICK,16)
+KBD(VK_S,CLICK,40)
+KBD(VK_S,CLICK,16)
+KBD(VK_Y,CLICK,40)
+KBD(VK_O,CLICK,16)
+KBD(VK_K,CLICK,40)
+KBD(VK_U,CLICK,16)
+KBD(VK_SPACE,CLICK,40)
+KBD(VK_RETURN,CLICK,40)
+
+KBD(VK_RETURN,CLICK,40)
+//待ち
+sleep(0.1)
+//ACW(GETID("画像をエクスポート: PNG","gdkWindowToplevel"),1101,540,373,398,0)
+//*******************
+WHILE TRUE
+//PRINT "export_chk_id"
+export_chk_id=GETID(GET_ACTIVE_WIN)
+//PRINT STATUS(export_chk_id,ST_BUSY)
+//PRINT STATUS(export_chk_id,ST_TITLE)
+//PRINT STATUS(export_chk_id,ST_CLASS)
+IFB STATUS(export_chk_id,ST_TITLE)="画像をエクスポート: PNG"
+SLEEP(0.1)
+BREAK
+ENDIF
+WEND
+//*******************
+KBD(VK_RETURN,CLICK,40)

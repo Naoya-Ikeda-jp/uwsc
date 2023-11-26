@@ -1,0 +1,2 @@
+//‘SŠp‚È‚ç”¼Šp‚É
+If GETKEYSTATE(TGL_IME) Then KBD(VK_KANJI,CLICK,50)

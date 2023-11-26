@@ -1,0 +1,3 @@
+If GETKEYSTATE(TGL_IME) Then KBD(VK_KANJI,CLICK,50)
+
+MSGBOX("遅延時間をいれたいセルを選択して<#CR>コピー元のシートを開いたらESCを押してね(その前に押さないで・・・)")

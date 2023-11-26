@@ -1,0 +1,92 @@
+//名称入力
+//*******************
+act_id=GETID(GET_ACTIVE_WIN)
+INPUT="_"+INPUT("ケース名を入力_例:CaseA_北")
+SLEEP(1)
+CTRLWIN(act_id,ACTIVATE)
+//CAST
+KBD(VK_RSHIFT,DOWN,40)
+KBD(VK_TAB,CLICK,40)
+KBD(VK_RSHIFT,UP,40)
+//*******************
+
+//キャンセル
+IFB INPUT="_"
+EXIT
+ENDIF
+
+//ログアナライザー
+LA_id=GETID("CAST Log Analyser","TDialogMultiFrames")
+//excel
+Excel_id=GETID("Microsoft Excel - TAIRGuideLine.xlsx","XLMAIN")
+
+// ウィンドウがアクティブかチェック
+//LA_id
+//Excel_id
+IFB !STATUS(Excel_id, ST_ACTIVE)
+// アクティブにする
+CTRLWIN(Excel_id, ACTIVATE)
+SLEEP(0.1)
+ENDIF
+
+//アプリからExcel出力**************************************************************
+ACW(GETID("CAST Log Analyser","TDialogMultiFrames"),-8,-8,2576,1416,0)
+KBD(VK_ALT,CLICK,40)
+KBD(VK_RIGHT,CLICK,40)
+KBD(VK_RIGHT,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_RETURN,CLICK,40)
+
+
+//*******************
+//名称が変わるまで
+xlsx_id=GETID("Microsoft Excel","XLMAIN")
+Default_name=STATUS(xlsx_id,ST_TITLE)
+//
+WHILE TRUE
+FUKIDASI("uwscログアナライザー出力：Excel出力される(名称が変わる)まで実行中",0,0,0,5)
+Compare_name=STATUS(xlsx_id,ST_TITLE)
+IFB Default_name<>Compare_name
+BREAK
+ENDIF
+WEND
+//アクティブにして画像削除
+CTRLWIN(xlsx_id,ACTIVATE)
+SLEEP(1)
+
+KBD(VK_DELETE,CLICK,40)
+//*******************
+
+//名前を付けて保存
+KBD(VK_F12,CLICK,40)
+
+//Desktop
+SLEEP(2)
+KBD(VK_RSHIFT,DOWN,40)
+KBD(VK_TAB,CLICK,40)
+KBD(VK_TAB,CLICK,40)
+KBD(VK_TAB,CLICK,40)
+KBD(VK_RSHIFT,UP,40)
+KBD(VK_HOME,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_DOWN,CLICK,40)
+KBD(VK_RETURN,CLICK,40)
+KBD(VK_ALT,DOWN,40)
+KBD(VK_N,CLICK,40)
+KBD(VK_ALT,UP,40)
+
+//*******************
+SLEEP(0.5)
+//CTRLWIN(act_id,ACTIVATE)
+Name_id=GETID(GET_ACTIVE_WIN)
+Name="走行回数"+INPUT
+SENDSTR(Name_id, Name,0)
+//*******************
+KBD(VK_RETURN,CLICK,40)
+If GETKEYSTATE(TGL_IME) Then KBD(VK_KANJI,CLICK,50)
+
+MSGBOX("完了")
