@@ -1,0 +1,13 @@
+*.sql linguist-detectable=true
+*.sql linguist-language=sql
+*.uws linguist-detectable=true
+*.uws linguist-language=uwsc
+*.htm linguist-detectable=true
+*.htm linguist-language=html
+*.html linguist-detectable=true
+*.html linguist-language=html
+*           text=auto
+*.txt       text
+*.vcproj    text eol=crlf
+*.sh        text eol=lf
+*.jpg       -text
