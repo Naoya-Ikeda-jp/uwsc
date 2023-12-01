@@ -2,6 +2,8 @@
 *.sql linguist-language=sql
 *.uws linguist-detectable=true
 *.uws linguist-language=uwsc
+*.UWS linguist-detectable=true
+*.UWS linguist-language=uwsc
 *.htm linguist-detectable=true
 *.htm linguist-language=html
 *.html linguist-detectable=true
